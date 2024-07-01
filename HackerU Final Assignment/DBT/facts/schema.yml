@@ -1,0 +1,27 @@
+
+version: 2
+
+models:
+  - name: fact_invoice
+    columns:
+      - name: invoiceid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_invoiceline
+    columns:
+      - name: invoicelineid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+sources: 
+  - name: stg 
+    database: chinook 
+    schema: stg
+    tables:
+      - name: invoice
+      - name: invoiceline

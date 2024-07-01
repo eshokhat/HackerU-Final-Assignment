@@ -1,0 +1,64 @@
+
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customerid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_employee
+    columns:
+        - name: employeeid
+          description: "The primary key for this table"
+          tests:
+              - unique
+              - not_null
+
+
+  - name: dim_playlist
+    columns:
+        - name: playlistid
+          description: "The primary key for this table"
+          tests:
+              - unique
+              - not_null
+
+
+  - name: dim_track
+    columns:
+        - name: trackid
+          description: "The primary key for this table"
+          tests:
+              - unique
+              - not_null
+
+
+  - name: dim_currency
+    columns:
+        - name: date_rate
+          description: "The primary key for this table"
+          tests:
+              - unique
+              - not_null
+
+
+sources: 
+  - name: stg 
+    database: chinook 
+    schema: stg
+    tables:
+      - name: customer
+      - name: employee
+      - name: department_budget
+      - name: playlist
+      - name: playlisttrack
+      - name: track
+      - name: album
+      - name: artist
+      - name: mediatype
+      - name: genre
+      - name: exchange_rate
